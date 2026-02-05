@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML + CSS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- <h1>
+      Create a 3*3 grid, with alternating colors like a chessboard. When you
+      click on a grid cell; alternate the color.
+    </h1> -->
+    <div class="container" id="grid-3"></div>
+  </body>
+  <script>
+    let gridEl = document.getElementById("grid-3");
+    gridEl.className += " grid-container";
+    for (let i = 1; i <= 3; i++) {
+      for (let i = 0; i < 9; i++) {
+        let divEl = document.createElement("div");
+        divEl.id = "item-" + i;
+
+        if (i % 2 == 0) {
+          divEl.style.backgroundColor = "blue";
+        } else {
+          divEl.style.backgroundColor = "red";
+        }
+
+        gridEl.append(divEl);
+      }
+    }
+    gridEl.addEventListener("click", (e) => {
+      const target = e.target;
+
+      if (target.style.backgroundColor === "blue") {
+        target.style.backgroundColor = "red";
+        //document.getElementById(target.id).style.backgroundColor = "red";
+      } else {
+        target.style.backgroundColor = "blue";
+        //document.getElementById(target.id).style.backgroundColor = "blue";
+      }
+    });
+  </script>
+</html>
